@@ -1,0 +1,315 @@
+# Copyright (C) 2025 eLearning evolve
+# This file is distributed under the GPL-3.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Add From Server Reloaded 5.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/add-from-server-reloaded\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-10-25T01:54:58+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: add-from-server-reloaded\n"
+
+#. Plugin Name of the plugin
+#: class.add-from-server.php:116
+#: class.add-from-server.php:117
+#: class.add-from-server.php:161
+#: old-versions.php:44
+msgid "Add From Server Reloaded"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/add-from-server-reloaded/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Bypass WordPress upload limit. Import large files from your server to Media Library. No PHP configuration needed. Batch import supported."
+msgstr ""
+
+#. Author of the plugin
+msgid "eLearning evolve"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://elearningevolve.com/about/"
+msgstr ""
+
+#: class.add-from-server.php:97
+msgid "Processing..."
+msgstr ""
+
+#: class.add-from-server.php:98
+msgid "Import Complete!"
+msgstr ""
+
+#: class.add-from-server.php:99
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: class.add-from-server.php:144
+msgid "Import Files"
+msgstr ""
+
+#: class.add-from-server.php:254
+msgid "Root directory reset to default."
+msgstr ""
+
+#. translators: %s: directory path
+#: class.add-from-server.php:269
+msgid "Error: The directory \"%s\" does not exist on your server."
+msgstr ""
+
+#. translators: %s: directory path
+#: class.add-from-server.php:283
+msgid "Error: The directory \"%s\" is not readable. Please check file permissions."
+msgstr ""
+
+#. translators: %s: directory path
+#: class.add-from-server.php:297
+msgid "Root directory updated! Now browsing: %s"
+msgstr ""
+
+#: class.add-from-server.php:360
+#: class.add-from-server.php:925
+msgid "Unable to determine root directory. Please check your configuration."
+msgstr ""
+
+#: class.add-from-server.php:396
+msgid "Security error: file is outside the allowed directory"
+msgstr ""
+
+#. translators: %d: number of files
+#: class.add-from-server.php:431
+msgid "%d file imported successfully."
+msgid_plural "%d files imported successfully."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of errors
+#: class.add-from-server.php:454
+msgid "%d file failed."
+msgid_plural "%d files failed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: class.add-from-server.php:525
+msgid "You do not have permission to upload files."
+msgstr ""
+
+#: class.add-from-server.php:531
+#: class.add-from-server.php:588
+msgid "No file specified."
+msgstr ""
+
+#: class.add-from-server.php:536
+msgid "Unable to determine root directory."
+msgstr ""
+
+#. translators: %s: file name
+#: class.add-from-server.php:547
+msgid "Security error: %s is outside the allowed directory."
+msgstr ""
+
+#. translators: %s: file name
+#: class.add-from-server.php:564
+msgid "%s imported successfully."
+msgstr ""
+
+#: class.add-from-server.php:582
+msgid "You do not have permission."
+msgstr ""
+
+#. translators: 1: file name, 2: attachment ID
+#: class.add-from-server.php:598
+msgid "%1$s already exists in the media library (ID: %2$d)."
+msgstr ""
+
+#: class.add-from-server.php:671
+msgid "The file does not exist or is not readable."
+msgstr ""
+
+#: class.add-from-server.php:679
+msgid "This file type cannot be imported for security reasons."
+msgstr ""
+
+#: class.add-from-server.php:696
+#: class.add-from-server.php:1176
+msgid "Sorry, this file type is not permitted for security reasons."
+msgstr ""
+
+#. translators: %s: link to edit attachment
+#: class.add-from-server.php:707
+msgid "File already exists. <a href=\"%s\" target=\"_blank\">View in Media Library</a>"
+msgstr ""
+
+#. translators: %s: upload directory path
+#: class.add-from-server.php:748
+msgid "The selected file could not be copied to %s."
+msgstr ""
+
+#. translators: 1: audio track title, 2: album title, 3: artist name
+#: class.add-from-server.php:786
+msgid "\"%1$s\" from %2$s by %3$s."
+msgstr ""
+
+#. translators: 1: audio track title, 2: album title
+#: class.add-from-server.php:789
+msgid "\"%1$s\" from %2$s."
+msgstr ""
+
+#. translators: 1: audio track title, 2: artist name
+#: class.add-from-server.php:792
+msgid "\"%1$s\" by %2$s."
+msgstr ""
+
+#. translators: %s: audio track title
+#: class.add-from-server.php:795
+msgid "\"%s\"."
+msgstr ""
+
+#. translators: 1: audio album title, 2: artist name
+#: class.add-from-server.php:802
+msgid "%1$s by %2$s."
+msgstr ""
+
+#. translators: %d: release year
+#: class.add-from-server.php:815
+msgid "Released: %d."
+msgstr ""
+
+#. translators: 1: track number, 2: total tracks
+#: class.add-from-server.php:822
+msgid "Track %1$s of %2$s."
+msgstr ""
+
+#. translators: %s: track number
+#: class.add-from-server.php:825
+msgid "Track %s."
+msgstr ""
+
+#. translators: %s: genre
+#: class.add-from-server.php:831
+msgid "Genre: %s."
+msgstr ""
+
+#. translators: %s: constant name
+#: class.add-from-server.php:929
+msgid "You can define the %s constant in your wp-config.php file to set a custom root directory."
+msgstr ""
+
+#: class.add-from-server.php:1056
+#: class.add-from-server.php:1140
+msgid "Parent Folder"
+msgstr ""
+
+#: class.add-from-server.php:1100
+msgid "📂 Current Location:"
+msgstr ""
+
+#: class.add-from-server.php:1106
+#: class.add-from-server.php:1225
+msgid "Import Selected Files"
+msgstr ""
+
+#: class.add-from-server.php:1108
+msgid "Show Hidden Files"
+msgstr ""
+
+#: class.add-from-server.php:1118
+#: class.add-from-server.php:1217
+msgid "File"
+msgstr ""
+
+#: class.add-from-server.php:1119
+#: class.add-from-server.php:1218
+msgid "Size"
+msgstr ""
+
+#: class.add-from-server.php:1120
+msgid "Last Modified"
+msgstr ""
+
+#: class.add-from-server.php:1142
+msgid "(Go Back)"
+msgstr ""
+
+#: class.add-from-server.php:1162
+msgid "(click to browse, check to import all files)"
+msgstr ""
+
+#: class.add-from-server.php:1163
+msgid "Folder"
+msgstr ""
+
+#: class.add-from-server.php:1178
+msgid "Sorry, but this file is unreadable by your Webserver. Perhaps check your File Permissions?"
+msgstr ""
+
+#: class.add-from-server.php:1208
+msgid "Show hidden files"
+msgstr ""
+
+#: class.add-from-server.php:1230
+msgid "📚 How to Use"
+msgstr ""
+
+#: class.add-from-server.php:1232
+msgid "This plugin allows you to import files that are already on your server into the WordPress Media Library. Simply browse to the folder containing your files, select them (or select entire folders), and click \"Import Selected Files\"."
+msgstr ""
+
+#: class.add-from-server.php:1236
+msgid "⚙️ Change Root Directory"
+msgstr ""
+
+#. translators: %s: root directory path
+#: class.add-from-server.php:1244
+#: class.add-from-server.php:1291
+msgid "Currently browsing: %s"
+msgstr ""
+
+#: class.add-from-server.php:1255
+msgid "Root Directory Path:"
+msgstr ""
+
+#: class.add-from-server.php:1268
+msgid "The path above is your current root directory. Change it to browse files from a different location."
+msgstr ""
+
+#: class.add-from-server.php:1270
+msgid "Examples:"
+msgstr ""
+
+#: class.add-from-server.php:1278
+msgid "Save Changes"
+msgstr ""
+
+#: class.add-from-server.php:1280
+msgid "Reset to Default"
+msgstr ""
+
+#: class.add-from-server.php:1286
+msgid "⚙️ Current Directory"
+msgstr ""
+
+#: class.add-from-server.php:1297
+msgid "Contact your site administrator to change the root directory."
+msgstr ""
+
+#. translators: %username% and %role% are literal example text that users may have entered in settings, not string placeholders. The <a> tag links to options.php page.
+#: class.add-from-server.php:1323
+msgid "You previously used the \"Root Directory\" option with a placeholder, such as %username% or %role%. Unfortunately this feature is no longer supported. As a result, Add From Server has been disabled for users who have restricted upload privileges. To make this warning go away, empty the \"frmsvr_root\" option on <a href=\"options.php#frmsvr_root\">options.php</a>."
+msgstr ""
+
+#. translators: 1: old root path, 2: new root path
+#: class.add-from-server.php:1334
+msgid "Warning: Root Directory changed. You previously used <code>%1$s</code> as your \"Root Directory\", this has been changed to <code>%2$s</code>. To restore your previous settings, add the following line to your <code>wp-config.php</code> file: <code>define( \"ADD_FROM_SERVER_RELOADED\", \"%1$s\" );</code> To make this warning go away, empty the \"frmsvr_root\" option on <a href=\"options.php#frmsvr_root\">options.php</a>."
+msgstr ""
+
+#. translators: 1: Minimum WordPress version, 2: Minimum PHP version, 3: Current WordPress version, 4: Current PHP version
+#: old-versions.php:21
+msgid "This plugin requires WordPress %1$s or greater, and PHP %2$s or greater. You are currently running WordPress %3$s and PHP %4$s. Please contact your website host or server administrator for more information. The plugin has been deactivated."
+msgstr ""
