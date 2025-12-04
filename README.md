@@ -8,7 +8,7 @@
 **Upload files larger than your hosting allows. Import from server to WordPress Media Library. Batch import, migrations, no upload limit. WordPress 6.8+ compatible.**
 
 ---
-
+---<h2 align="center">💝 Support This Project</h2><p align="center"><strong>If you find this project helpful, please consider supporting it:</strong></p><p align="center"><a href="https://link.elearningevolve.com/self-pay" target="_blank"><img src="https://img.shields.io/badge/Support%20via%20Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white" alt="Support via Stripe" height="50" width="300"></a></p><p align="center"><a href="https://link.elearningevolve.com/self-pay" target="_blank"><strong>👉 Click here to support via Stripe 👈</strong></a></p>---
 ## Fix WordPress Upload Limit Issues - The Easy Way
 
 Tired of seeing *"The uploaded file exceeds the upload_max_filesize directive"* errors? Can't upload large videos because your hosting limits uploads to 64MB? Need to bulk import hundreds of product images but keep timing out?
