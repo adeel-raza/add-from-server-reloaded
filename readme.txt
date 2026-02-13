@@ -1,14 +1,23 @@
 === Add From Server Reloaded ===
+<<<<<<< HEAD
 Contributors: verygoodplugins, elearningevolve, adeelraza_786@hotmail.com 
 Donate link: https://link.elearningevolve.com/self-pay
 Tags: upload-limit, large-files, ftp, import, server
 Requires at least: 6.0
 Tested up to: 6.8
+=======
+Contributors: dd32, elearningevolve, adeelraza_786@hotmail.com
+Donate link: https://link.elearningevolve.com/self-pay
+Tags: upload-limit, large-files, ftp, import, fileupload
+Requires at least: 6.0
+Tested up to: 6.9
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 Requires PHP: 7.4
 Stable tag: 5.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
+<<<<<<< HEAD
 Bypass WordPress upload limits. Import large files from server to Media Library. No PHP configuration needed.
 
 == Description ==
@@ -205,6 +214,140 @@ Yes! It's designed specifically for shared hosting where you can't easily change
 4. Import success message - Consolidated results showing all imported files with clickable Media Library links
 5. Root directory configuration - Admin panel for easy root directory changes without editing config files
 6. Mobile responsive view - Clean interface that works perfectly on tablets and phones
+=======
+Bypass WordPress upload limits and import large files or folders directly from anywhere on your server into the WordPress Media Library.
+
+== Description ==
+
+**Add From Server Reloaded – The Ultimate WordPress Upload Limit Plugin**
+
+Tired of running into WordPress upload limits? Struggling to upload large videos, RAW photos, PDFs, or bulk product images? Add From Server Reloaded is the easy solution to bypass WordPress upload restrictions, import files directly from your server, and manage your Media Library efficiently.
+
+With Add From Server Reloaded, you can upload files of any size without changing PHP configuration or server settings. Works seamlessly on shared hosting, multi-site installations, WooCommerce stores, and WordPress 6.7+.
+
+== How It Works (3 Easy Steps) ==
+
+1. Upload files via FTP/SSH to your server (no size limit)  
+2. Use Add From Server Reloaded to scan and select files  
+3. Import directly to WordPress Media Library – done!  
+
+== Features & Benefits ==
+
+**Enhanced File Import & Management**
+
+* One-Click Folder Import – Import entire folders, including subfolders, in one go  
+* Smart Duplicate Detection – Prevents importing the same file multiple times  
+* Real-Time File Search – Quickly find any file in your server with live search  
+* Configurable Root Directory – Change the browsing root directly from plugin settings  
+* Show/Hide Hidden Files – Toggle visibility for non-importable files  
+* Last Modified Column – Quickly see when files were last updated  
+* Batch Import Progress – Visual progress feedback for large file batches  
+* Keyboard Shortcuts – Ctrl+A to select all, ESC to clear search  
+* Import Summary – Consolidated message showing all imported files with clickable Media Library links  
+
+**User Interface Improvements**
+
+* Improved folder navigation with clear checkboxes  
+* Better visual hierarchy – folders distinguished from files  
+* Clickable breadcrumbs – easily track current folder location  
+* Import buttons at top & bottom for easier access  
+* File count display – see how many files/folders are selected  
+* Success message links – view imported files directly in Media Library  
+
+**Security & Performance**
+
+* Directory Traversal Protection – prevent access outside allowed folders  
+* Dangerous File Blocking – blocks PHP, EXE, and other unsafe file types  
+* Enhanced CSRF Protection – all forms nonce verified  
+* Real Path Validation – prevents path manipulation attacks  
+* Input Sanitization & Output Escaping – all dynamic outputs sanitized  
+* Optimized file scanning – faster loading and memory-efficient  
+* Batch operation progress updates – track large imports easily  
+
+**Compatibility**
+
+* WordPress 6.0 – 6.8  
+* PHP 7.4 – 8.3  
+* WooCommerce compatible  
+* Page builder compatible  
+* Multi-site compatible  
+* Works on shared hosting  
+
+**Credits**
+
+This plugin is a fork of the original "Add From Server" plugin by Dion Hulse (70,000+ active installs), with significant enhancements for security, performance, and usability. Modernized for WordPress 6.7+ and includes features users have been requesting for years.
+
+== Why Choose Add From Server Reloaded Over Other Methods ==
+
+**Key Benefits Over Original Add From Server Plugin**
+
+* One-click folder import, smart duplicate detection, real-time search, root directory configuration  
+* Security improvements – directory traversal protection, dangerous file blocking, CSRF verification, input/output sanitization  
+* User interface overhaul – better folder navigation, breadcrumbs, import summary  
+* Fixed original plugin issues – PHP 8+, WordPress 6.7+, memory exhaustion, duplicate imports  
+* Performance improvements – optimized scanning, smart memory management, batch progress feedback  
+* Technical improvements – WordPress 6.8 compatible, PHP 7.4–8.3, full coding standards compliance  
+* Code quality improvements – replaced deprecated functions, Docblocks, translation ready  
+
+**Benefits Compared to Editing php.ini**
+
+* No server configuration or PHP knowledge needed  
+* Non-technical users can import files easily  
+* Safe for shared hosting environments  
+* Works without root server access  
+
+== Common Upload Limit Problems Solved ==
+
+* "The uploaded file exceeds the upload_max_filesize directive in php.ini"  
+* "Maximum upload file size: 64MB" or other limits  
+* Large 4K/8K videos  
+* RAW photo files (50MB+)  
+* Bulk product image imports  
+* PDF documents or other large resources  
+* Timeouts during uploads on slow internet connections  
+* Memory exhaustion during uploads  
+* Browser crashes with large media  
+
+== Perfect For ==
+
+* Video creators – import large videos without limits  
+* Photographers – handle RAW images easily  
+* E-commerce – bulk import product images and catalogs  
+* Agencies & developers – streamline client migrations and FTP workflows  
+* Site migrations – import full media libraries efficiently  
+* Content sites – bulk import PDFs, audio, and other media  
+
+== Installation ==
+
+1. Upload the add-from-server-reloaded folder to /wp-content/plugins/  
+2. Activate via 'Plugins' menu in WordPress  
+3. Login to WP Admin -> Click Side Menu -> Add From Server Reloaded  
+4. Browse and import your files  
+
+== Frequently Asked Questions ==
+
+= How do I bypass WordPress upload limit? =  
+Upload files via FTP/SSH (no size limit), then import using this plugin.  
+
+= Can I upload large videos or RAW photos? =  
+Yes. Works with 4K/8K videos, large PDFs, RAW images, and any WordPress-supported file type.  
+
+= Can I bulk import product images for WooCommerce? =  
+Yes. Upload all images via FTP, then batch import to Media Library.  
+
+= Does this require server access? =  
+You need FTP/SSH for uploading files, but no root access or php.ini edits are required.  
+
+= Is it safe for shared hosting? =  
+Absolutely. No server configuration changes required.  
+
+== Screenshots ==
+
+1. Browse server files with modern interface  
+2. Real-time search filter in action  
+3. Folder import – select all files including subfolders  
+4. Import success message – consolidated results with Media Library links  
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 == Changelog ==
 
@@ -305,6 +448,7 @@ The original "Add From Server" plugin hasn't been updated since 2020 and doesn't
 
 None! This version is 100% backward compatible. All your existing settings will work exactly as before.
 
+<<<<<<< HEAD
 = 4.1.2 - 2025-10-25 =
 * Enhanced: WordPress Plugin Check compliance (all errors resolved)
 * Enhanced: Full internationalization support with translators comments
@@ -375,3 +519,21 @@ Updated namespace for better WordPress.org compatibility. No functionality chang
 
 = 4.0.0 =
 Major update with enhanced security, modern UI, and new features. Fully compatible with WordPress 6.7+.
+=======
+= 4.1.2 - 2025-10-25 =  
+* WordPress Plugin Check compliance, internationalization support, output escaping  
+
+= 4.1.0 - 2025-01-25 =  
+* Namespace updated for WordPress standards, PHP 8+ compatibility  
+
+= 4.0.0 - 2025-01-25 =  
+* Initial release of Add From Server Reloaded  
+* Security overhaul, duplicate detection, real-time search, modern UI  
+* Batch folder import, enhanced error handling, WordPress 6.7+ compatible  
+
+== Upgrade Notice ==
+
+* 5.0.0 – Major update: new UI, modern features, security, WordPress 6.8 compatible. 100% backward compatible.  
+* 4.1.2 – Critical fix for folder name display & navigation.  
+* 4.1.0 – Namespace update for WordPress.org compliance.
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)

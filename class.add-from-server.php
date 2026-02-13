@@ -2,17 +2,29 @@
 /**
  * Add From Server Reloaded - Main Plugin Class
  *
+<<<<<<< HEAD
  * @package   Add_From_Server_Reloaded
+=======
+ * @package   AFSRReloaded
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
  * @copyright Copyright (c) 2025, Very Good Plugins, https://verygoodplugins.com
  * @license   GPL-3.0+
  * @since     4.0.0
  */
 
+<<<<<<< HEAD
 namespace Add_From_Server_Reloaded;
 
 use WP_Error;
 
 const COOKIE = 'afsr_path';
+=======
+namespace AFSRReloaded;
+
+use WP_Error;
+
+const COOKIE = 'afsrreloaded_path';
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 /**
  * Main Plugin Class.
@@ -20,6 +32,41 @@ const COOKIE = 'afsr_path';
  * @since 4.0.0
  */
 class Plugin {
+<<<<<<< HEAD
+=======
+	/**
+	 * Get uploads directory info for imports with optional subdir prefix.
+	 *
+	 * @since 5.0.1
+	 *
+	 * @param int  $time       Unix timestamp.
+	 * @param bool $create_dir Whether to create the directory.
+	 * @return array Uploads array (path/url/baseurl/basedir/subdir/error).
+	 */
+	protected function get_import_uploads_dir( $time, $create_dir = true ) {
+		$uploads = wp_upload_dir( $time, false );
+		if ( ! empty( $uploads['error'] ) ) {
+			return $uploads;
+		}
+
+		$subdir = apply_filters( 'afsrreloaded_upload_subdir', '/add-from-server-reloaded' );
+		$subdir = is_string( $subdir ) ? trim( $subdir ) : '';
+		if ( '' === $subdir ) {
+			return $uploads;
+		}
+
+		$subdir = '/' . ltrim( $subdir, '/' );
+		$uploads['subdir'] = $subdir;
+		$uploads['path']   = $uploads['basedir'] . $subdir;
+		$uploads['url']    = $uploads['baseurl'] . $subdir;
+
+		if ( $create_dir && ! wp_mkdir_p( $uploads['path'] ) ) {
+			$uploads['error'] = __( 'Unable to create the uploads subdirectory.', 'add-from-server-reloaded' );
+		}
+
+		return $uploads;
+	}
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 	/**
 	 * Singleton instance.
@@ -43,8 +90,13 @@ class Plugin {
 	protected function __construct() {
 		\add_action( 'admin_init', array( $this, 'admin_init' ) );
 		\add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+<<<<<<< HEAD
 		\add_action( 'wp_ajax_afsr_batch_import', array( $this, 'ajax_batch_import' ) );
 		\add_action( 'wp_ajax_afsr_check_duplicate', array( $this, 'ajax_check_duplicate' ) );
+=======
+		\add_action( 'wp_ajax_afsrreloaded_batch_import', array( $this, 'ajax_batch_import' ) );
+		\add_action( 'wp_ajax_afsrreloaded_check_duplicate', array( $this, 'ajax_check_duplicate' ) );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		
 		// Allow additional file types.
 		\add_filter( 'upload_mimes', array( $this, 'allow_additional_mimes' ) );
@@ -76,7 +128,11 @@ class Plugin {
 			'add-from-server-reloaded', 
 			\plugins_url( '/add-from-server.js', __FILE__ ), 
 			array( 'jquery' ), 
+<<<<<<< HEAD
 			AFSR_VERSION,
+=======
+			AFSRRELOADED_VERSION,
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 			true
 		);
 		
@@ -84,23 +140,38 @@ class Plugin {
 			'add-from-server-reloaded', 
 			\plugins_url( '/add-from-server.css', __FILE__ ), 
 			array(), 
+<<<<<<< HEAD
 			AFSR_VERSION 
+=======
+			AFSRRELOADED_VERSION 
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		);
 
 		// Localize script for AJAX.
 		\wp_localize_script(
 			'add-from-server-reloaded',
+<<<<<<< HEAD
 			'afsrData',
 			array(
 				'ajaxurl'    => \admin_url( 'admin-ajax.php' ),
 				'nonce'      => \wp_create_nonce( 'afsr_import' ),
+=======
+			'afsrreloadedData',
+			array(
+				'ajaxurl'    => \admin_url( 'admin-ajax.php' ),
+				'nonce'      => \wp_create_nonce( 'afsrreloaded_import' ),
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 				'processing' => __( 'Processing...', 'add-from-server-reloaded' ),
 				'complete'   => __( 'Import Complete!', 'add-from-server-reloaded' ),
 				'error'      => __( 'An error occurred. Please try again.', 'add-from-server-reloaded' ),
 			)
 		);
 
+<<<<<<< HEAD
 		\add_filter( 'plugin_action_links_' . \plugin_basename( AFSR_PLUGIN_FILE ), array( $this, 'add_upload_link' ) );
+=======
+		\add_filter( 'plugin_action_links_' . \plugin_basename( AFSRRELOADED_PLUGIN_FILE ), array( $this, 'add_upload_link' ) );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 		// Handle the path selection early.
 		$this->path_selection_cookie();
@@ -112,12 +183,23 @@ class Plugin {
 	 * @since 4.0.0
 	 */
 	public function admin_menu() {
+<<<<<<< HEAD
 		$page_slug = \add_media_page(
 			__( 'Add From Server Reloaded', 'add-from-server-reloaded' ),
 			__( 'Add From Server Reloaded', 'add-from-server-reloaded' ),
 			'upload_files',
 			'add-from-server-reloaded',
 			array( $this, 'menu_page' )
+=======
+		$page_slug = \add_menu_page(
+			__( 'Add From Server Reloaded', 'add-from-server-reloaded' ),
+			__( 'Add From Server', 'add-from-server-reloaded' ),
+			'upload_files',
+			'add-from-server-reloaded',
+			array( $this, 'menu_page' ),
+			'dashicons-upload',
+			30
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		);
 		
 		\add_action( 'load-' . $page_slug, function() {
@@ -127,6 +209,29 @@ class Plugin {
 			// Handle settings save.
 			$this->handle_settings_save();
 		} );
+<<<<<<< HEAD
+=======
+		
+		// Set page title to avoid deprecation warnings.
+		\add_filter( 'admin_title', array( $this, 'set_admin_page_title' ), 10, 2 );
+	}
+	
+	/**
+	 * Set admin page title.
+	 *
+	 * @since 5.0.0
+	 *
+	 * @param string $admin_title The page title.
+	 * @param string $title       The original title.
+	 * @return string
+	 */
+	public function set_admin_page_title( $admin_title, $title ) {
+		$screen = \get_current_screen();
+		if ( $screen && 'add-from-server-reloaded' === $screen->id ) {
+			return \__( 'Add From Server Reloaded', 'add-from-server-reloaded' ) . $admin_title;
+		}
+		return $admin_title;
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	}
 
 	/**
@@ -141,7 +246,11 @@ class Plugin {
 		if ( current_user_can( 'upload_files' ) ) {
 			array_unshift( 
 				$links, 
+<<<<<<< HEAD
 				'<a href="' . esc_url( admin_url( 'upload.php?page=add-from-server-reloaded' ) ) . '">' . __( 'Import Files', 'add-from-server-reloaded' ) . '</a>' 
+=======
+				'<a href="' . esc_url( admin_url( 'admin.php?page=add-from-server-reloaded' ) ) . '">' . __( 'Import Files', 'add-from-server-reloaded' ) . '</a>' 
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 			);
 		}
 
@@ -154,6 +263,13 @@ class Plugin {
 	 * @since 4.0.0
 	 */
 	public function menu_page() {
+<<<<<<< HEAD
+=======
+		// Set page title.
+		global $title;
+		$title = \__( 'Add From Server Reloaded', 'add-from-server-reloaded' );
+		
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		// Handle any imports.
 		$this->handle_imports();
 
@@ -180,7 +296,11 @@ class Plugin {
 		// 3. Their home directory.
 		// 4. The parent directory of the current install or wp-content directory.
 
+<<<<<<< HEAD
 		$saved_root = \get_option( 'afsr_root_directory', '' );
+=======
+		$saved_root = \get_option( 'afsrreloaded_root_directory', '' );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		
 		if ( ! empty( $saved_root ) ) {
 			$root = $saved_root;
@@ -225,7 +345,11 @@ class Plugin {
 		 *
 		 * @param string|false $root Root directory path or false.
 		 */
+<<<<<<< HEAD
 		return apply_filters( 'afsr_root_directory', $root );
+=======
+		return apply_filters( 'afsrreloaded_root_directory', $root );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	}
 
 	/**
@@ -234,7 +358,11 @@ class Plugin {
 	 * @since 4.0.6
 	 */
 	protected function handle_settings_save() {
+<<<<<<< HEAD
 		if ( ! isset( $_POST['afsr_save_settings'] ) ) {
+=======
+		if ( ! isset( $_POST['afsrreloaded_save_settings'] ) ) {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 			return;
 		}
 
@@ -242,6 +370,7 @@ class Plugin {
 			return;
 		}
 
+<<<<<<< HEAD
 		\check_admin_referer( 'afsr_settings' );
 
 		$new_root = isset( $_POST['afsr_root_directory'] ) ? \sanitize_text_field( \wp_unslash( $_POST['afsr_root_directory'] ) ) : '';
@@ -251,6 +380,17 @@ class Plugin {
 			\add_settings_error(
 				'afsr_settings',
 				'afsr_root_cleared',
+=======
+		\check_admin_referer( 'afsrreloaded_settings' );
+
+		$new_root = isset( $_POST['afsrreloaded_root_directory'] ) ? \sanitize_text_field( \wp_unslash( $_POST['afsrreloaded_root_directory'] ) ) : '';
+
+		if ( empty( $new_root ) ) {
+			\delete_option( 'afsrreloaded_root_directory' );
+			\add_settings_error(
+				'afsrreloaded_settings',
+				'afsrreloaded_root_cleared',
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 				__( 'Root directory reset to default.', 'add-from-server-reloaded' ),
 				'success'
 			);
@@ -262,8 +402,13 @@ class Plugin {
 
 		if ( ! \is_dir( $new_root ) ) {
 			\add_settings_error(
+<<<<<<< HEAD
 				'afsr_settings',
 				'afsr_invalid_path',
+=======
+				'afsrreloaded_settings',
+				'afsrreloaded_invalid_path',
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 				\sprintf(
 					/* translators: %s: directory path */
 					__( 'Error: The directory "%s" does not exist on your server.', 'add-from-server-reloaded' ),
@@ -276,8 +421,13 @@ class Plugin {
 
 		if ( ! \is_readable( $new_root ) ) {
 			\add_settings_error(
+<<<<<<< HEAD
 				'afsr_settings',
 				'afsr_not_readable',
+=======
+				'afsrreloaded_settings',
+				'afsrreloaded_not_readable',
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 				\sprintf(
 					/* translators: %s: directory path */
 					__( 'Error: The directory "%s" is not readable. Please check file permissions.', 'add-from-server-reloaded' ),
@@ -288,10 +438,17 @@ class Plugin {
 			return;
 		}
 
+<<<<<<< HEAD
 		\update_option( 'afsr_root_directory', $new_root );
 		\add_settings_error(
 			'afsr_settings',
 			'afsr_root_saved',
+=======
+		\update_option( 'afsrreloaded_root_directory', $new_root );
+		\add_settings_error(
+			'afsrreloaded_settings',
+			'afsrreloaded_root_saved',
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 			\sprintf(
 				/* translators: %s: directory path */
 				__( 'Root directory updated! Now browsing: %s', 'add-from-server-reloaded' ),
@@ -350,10 +507,18 @@ class Plugin {
 			return;
 		}
 
+<<<<<<< HEAD
 		check_admin_referer( 'afsr_import' );
 
 		$files = isset( $_POST['files'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['files'] ) ) : array();
 		$folders = isset( $_POST['folders'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['folders'] ) ) : array();
+=======
+		check_admin_referer( 'afsrreloaded_import' );
+
+		$files = isset( $_POST['files'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['files'] ) ) : array();
+		$folders = isset( $_POST['folders'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['folders'] ) ) : array();
+		$selected_files = $files;
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 			$root = $this->get_root();
 			if ( ! $root ) {
@@ -362,10 +527,18 @@ class Plugin {
 
 		// Get all files from selected folders.
 		$folder_files = array();
+<<<<<<< HEAD
 		foreach ( $folders as $folder ) {
 			$folder_path = trailingslashit( $root ) . ltrim( $folder, '/' );
 			$folder_files = array_merge( $folder_files, $this->get_files_from_folder( $folder_path, $root ) );
 		}
+=======
+		$blocked_files = array();
+		foreach ( $folders as $folder ) {
+			$folder_path = trailingslashit( $root ) . ltrim( $folder, '/' );
+			$folder_files = array_merge( $folder_files, $this->get_files_from_folder( $folder_path, $root, $blocked_files ) );
+			}
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 		// Merge folder files with individually selected files.
 		$files = array_merge( $files, $folder_files );
@@ -380,8 +553,16 @@ class Plugin {
 
 		$imported = 0;
 		$errors   = 0;
+<<<<<<< HEAD
 		$error_files = array();
 		$imported_files = array();
+=======
+		$duplicates = 0;
+		$skipped_selected = array();
+		$error_files = array();
+		$imported_files = array();
+		$duplicate_files = array();
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 		foreach ( (array) $files as $file ) {
 				$filename = trailingslashit( $root ) . ltrim( $file, '/' );
@@ -398,6 +579,7 @@ class Plugin {
 					continue;
 				}
 
+<<<<<<< HEAD
 			$id = $this->handle_import_file( $realpath );
 
 			if ( \is_wp_error( $id ) ) {
@@ -406,13 +588,44 @@ class Plugin {
 					'filename' => basename( $file ),
 					'message'  => $id->get_error_message(),
 				);
+=======
+			// If user selected specific files, skip restricted ones with a clear message.
+			if ( ! empty( $selected_files ) && in_array( $file, $selected_files, true ) && $this->is_restricted_file( $realpath ) ) {
+				$skipped_selected[] = array(
+					'filename' => basename( $file ),
+					'message'  => __( 'This file was not imported due to security restrictions.', 'add-from-server-reloaded' ),
+				);
+				continue;
+			}
+
+			$id = $this->handle_import_file( $realpath );
+
+			if ( \is_wp_error( $id ) ) {
+				if ( 'file_exists' === $id->get_error_code() ) {
+					$duplicates++;
+					$duplicate_files[] = array(
+						'filename' => basename( $file ),
+						'message'  => $id->get_error_message(),
+					);
+				} else {
+					$errors++;
+					$error_files[] = array(
+						'filename' => basename( $file ),
+						'message'  => $id->get_error_message(),
+					);
+				}
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 				} else {
 				$imported++;
 				$imported_files[] = array(
 					'filename' => basename( $file ),
 					'id'       => $id,
 				);
+<<<<<<< HEAD
 			}
+=======
+				}
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 			if ( ! defined( 'DOING_AJAX' ) ) {
 				flush();
@@ -420,8 +633,13 @@ class Plugin {
 		}
 
 		// Single summary message.
+<<<<<<< HEAD
 		if ( $imported > 0 || $errors > 0 ) {
 			$message_class = $errors > 0 ? 'notice-warning' : 'notice-success';
+=======
+		if ( $imported > 0 || $errors > 0 || $duplicates > 0 || ! empty( $blocked_files ) || ! empty( $skipped_selected ) ) {
+			$message_class = ( $errors > 0 ) ? 'notice-warning' : 'notice-success';
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 			echo '<div class="notice ' . \esc_attr( $message_class ) . '"><p>';
 			
 			if ( $imported > 0 ) {
@@ -432,9 +650,23 @@ class Plugin {
 					absint( $imported )
 				);
 				echo '</strong>';
+<<<<<<< HEAD
 				
 				// Show imported file names.
 				if ( ! empty( $imported_files ) ) {
+=======
+
+				if ( ! empty( $folders ) ) {
+					// Show uploaded folder names when folder import is used.
+					echo '<br><small>';
+					foreach ( $folders as $folder ) {
+						$folder_name = basename( $folder ) ?: $folder;
+						echo '<strong>' . \esc_html( $folder_name ) . '</strong> ' . \esc_html__( 'folder uploaded.', 'add-from-server-reloaded' ) . '<br>';
+					}
+					echo '</small>';
+				} elseif ( ! empty( $selected_files ) && ! empty( $imported_files ) ) {
+					// Show imported file names for direct file selection.
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 					echo '<br><small>';
 					foreach ( $imported_files as $file ) {
 						$edit_link = \admin_url( 'post.php?post=' . $file['id'] . '&action=edit' );
@@ -444,6 +676,30 @@ class Plugin {
 				}
 			}
 			
+<<<<<<< HEAD
+=======
+			if ( $duplicates > 0 ) {
+				if ( $imported > 0 ) {
+					echo '<br><br>';
+				}
+				echo '<strong>';
+				echo sprintf(
+					/* translators: %d: number of duplicates */
+					esc_html( _n( '%d file already exists in Media Library.', '%d files already exist in Media Library.', $duplicates, 'add-from-server-reloaded' ) ),
+					absint( $duplicates )
+				);
+				echo '</strong>';
+
+				if ( empty( $folders ) && ! empty( $selected_files ) && ! empty( $duplicate_files ) ) {
+					echo '<br><small>';
+					foreach ( $duplicate_files as $dup ) {
+						echo '<strong>' . esc_html( $dup['filename'] ) . '</strong>: ' . wp_kses_post( $dup['message'] ) . '<br>';
+					}
+					echo '</small>';
+				}
+			}
+
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 			if ( $errors > 0 ) {
 				if ( $imported > 0 ) {
 					echo '<br><br>';
@@ -457,12 +713,17 @@ class Plugin {
 				echo '</strong>';
 				
 				// Show error details.
+<<<<<<< HEAD
 				if ( ! empty( $error_files ) ) {
+=======
+				if ( ! empty( $error_files ) && empty( $folders ) && ! empty( $selected_files ) ) {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 					echo '<br><small>';
 					foreach ( $error_files as $error ) {
 						echo '<strong>' . \esc_html( $error['filename'] ) . '</strong>: ' . \wp_kses_post( $error['message'] ) . '<br>';
 					}
 					echo '</small>';
+<<<<<<< HEAD
 				}
 			}
 			
@@ -470,6 +731,86 @@ class Plugin {
 		}
 	}
 
+=======
+		}
+	}
+
+			if ( ! empty( $blocked_files ) ) {
+				if ( $imported > 0 || $errors > 0 || $duplicates > 0 ) {
+					echo '<br><br>';
+				}
+				echo '<strong>';
+				echo sprintf(
+					/* translators: %d: number of blocked files */
+					\esc_html( \_n( '%d file was skipped for security reasons.', '%d files were skipped for security reasons.', count( $blocked_files ), 'add-from-server-reloaded' ) ),
+					absint( count( $blocked_files ) )
+				);
+				echo '</strong>';
+				$restricted_list = implode( ', ', array_map( 'strtoupper', $this->get_restricted_extensions() ) );
+				echo '<br><small>';
+				echo sprintf(
+					/* translators: %s: comma-separated list of restricted extensions */
+					esc_html__( 'Some files in the selected folders were not imported because their file types are not allowed: %s.', 'add-from-server-reloaded' ),
+					esc_html( $restricted_list )
+				);
+				echo '</small>';
+			}
+
+			if ( ! empty( $skipped_selected ) ) {
+				if ( $imported > 0 || $errors > 0 || $duplicates > 0 ) {
+					echo '<br><br>';
+				}
+				echo '<strong>' . esc_html__( 'Some files were skipped for security reasons.', 'add-from-server-reloaded' ) . '</strong>';
+				echo '<br><small>';
+				foreach ( $skipped_selected as $skip ) {
+					echo '<strong>' . esc_html( $skip['filename'] ) . '</strong>: ' . esc_html( $skip['message'] ) . '<br>';
+				}
+				echo '</small>';
+			}
+
+				echo '</p></div>';
+		}
+	}
+
+	/**
+	 * Get restricted file extensions.
+	 *
+	 * @since 5.0.1
+	 *
+	 * @return array
+	 */
+	protected function get_restricted_extensions() {
+		return array( 'php', 'phtml', 'phps', 'pht', 'phar', 'exe', 'sh', 'bat', 'cmd' );
+	}
+
+	/**
+	 * Check if a file is restricted from import.
+	 *
+	 * @since 5.0.1
+	 *
+	 * @param string $path File path.
+	 * @return bool True if restricted.
+	 */
+	protected function is_restricted_file( $path ) {
+		$dangerous_extensions = $this->get_restricted_extensions();
+		$ext = strtolower( pathinfo( $path, PATHINFO_EXTENSION ) );
+
+		if ( in_array( $ext, $dangerous_extensions, true ) ) {
+			return true;
+		}
+
+		$wp_filetype = \wp_check_filetype( $path, null );
+		$type        = $wp_filetype['type'];
+		$ext_check   = $wp_filetype['ext'];
+
+		if ( ( ! $type || ! $ext_check ) && ! current_user_can( 'unfiltered_upload' ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	/**
 	 * Recursively get all files from a folder.
 	 *
@@ -479,7 +820,11 @@ class Plugin {
 	 * @param  string $root Root directory path.
 	 * @return array Array of relative file paths.
 	 */
+<<<<<<< HEAD
 	protected function get_files_from_folder( $folder_path, $root ) {
+=======
+	protected function get_files_from_folder( $folder_path, $root, &$blocked_files = array() ) {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		$files = array();
 
 		// Security: Verify the real path.
@@ -504,8 +849,17 @@ class Plugin {
 
 			if ( \is_dir( $item ) ) {
 				// Recursively get files from subdirectory.
+<<<<<<< HEAD
 				$files = \array_merge( $files, $this->get_files_from_folder( $item, $root ) );
 			} elseif ( \is_file( $item ) ) {
+=======
+				$files = \array_merge( $files, $this->get_files_from_folder( $item, $root, $blocked_files ) );
+			} elseif ( \is_file( $item ) ) {
+				if ( $this->is_restricted_file( $item ) ) {
+					$blocked_files[] = $relative_item;
+					continue;
+				}
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 				$files[] = $relative_item;
 			}
 		}
@@ -519,7 +873,11 @@ class Plugin {
 	 * @since 4.0.0
 	 */
 	public function ajax_batch_import() {
+<<<<<<< HEAD
 		check_ajax_referer( 'afsr_import', 'nonce' );
+=======
+		check_ajax_referer( 'afsrreloaded_import', 'nonce' );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 		if ( ! current_user_can( 'upload_files' ) ) {
 			wp_send_json_error( array( 'message' => __( 'You do not have permission to upload files.', 'add-from-server-reloaded' ) ) );
@@ -576,7 +934,11 @@ class Plugin {
 	 * @since 4.0.0
 	 */
 	public function ajax_check_duplicate() {
+<<<<<<< HEAD
 		check_ajax_referer( 'afsr_import', 'nonce' );
+=======
+		check_ajax_referer( 'afsrreloaded_import', 'nonce' );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 		if ( ! current_user_can( 'upload_files' ) ) {
 			wp_send_json_error( array( 'message' => __( 'You do not have permission.', 'add-from-server-reloaded' ) ) );
@@ -618,7 +980,11 @@ class Plugin {
 	protected function check_if_duplicate( $file ) {
 		global $wpdb;
 		
+<<<<<<< HEAD
 		$uploads = \wp_upload_dir();
+=======
+		$uploads = \wp_upload_dir( null, false );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		$file    = \wp_normalize_path( $file );
 		
 		// Check if file is in uploads directory.
@@ -672,18 +1038,50 @@ class Plugin {
 		}
 
 		// Security: Prevent importing of PHP files or other dangerous types.
+<<<<<<< HEAD
 		$dangerous_extensions = array( 'php', 'phtml', 'php3', 'php4', 'php5', 'phps', 'pht', 'phar', 'exe', 'sh', 'bat', 'cmd' );
+=======
+		$dangerous_extensions = $this->get_restricted_extensions();
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		$ext = strtolower( pathinfo( $file, PATHINFO_EXTENSION ) );
 		
 		if ( in_array( $ext, $dangerous_extensions, true ) ) {
 			return new WP_Error( 'dangerous_file_type', __( 'This file type cannot be imported for security reasons.', 'add-from-server-reloaded' ) );
 		}
 
+<<<<<<< HEAD
 		// Initially base it on the current time.
 		$time = time();
 
 		// A writable uploads dir will pass this test.
 		$uploads = wp_upload_dir( $time );
+=======
+		// Base the time on the file's modified time when possible.
+		$time = filemtime( $file );
+		if ( ! $time || ! is_int( $time ) ) {
+			$time = time();
+		}
+
+		// Guard against invalid or extreme file dates.
+		$current_time = (int) current_time( 'timestamp' );
+		$current_year = (int) gmdate( 'Y', $current_time );
+		$time_year    = (int) gmdate( 'Y', $time );
+		if ( $time_year < 1970 || $time_year > ( $current_year + 1 ) ) {
+			$time = $current_time;
+		}
+
+		// If the file path contains a valid YYYY/MM segment, use that date.
+		if ( preg_match( '~/(?P<year>\d{4})/(?P<month>0[1-9]|1[0-2])(?:/|$)~', wp_normalize_path( $file ), $datemat ) ) {
+			$year  = (int) $datemat['year'];
+			$month = (int) $datemat['month'];
+			if ( $year >= 1970 && $year <= ( $current_year + 1 ) ) {
+				$time = mktime( 0, 0, 0, $month, 1, $year );
+			}
+		}
+
+		// Get uploads info without creating new year/month folders.
+		$uploads = wp_upload_dir( $time, false );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		if ( ! empty( $uploads['error'] ) ) {
 			return new WP_Error( 'upload_error', $uploads['error'] );
 		}
@@ -714,6 +1112,7 @@ class Plugin {
 		if ( preg_match( '|^' . preg_quote( wp_normalize_path( $uploads['basedir'] ), '|' ) . '(.*)$|i', $file, $mat ) ) {
 
 			$filename = basename( $file );
+<<<<<<< HEAD
 			$new_file = $file;
 			$url      = $uploads['baseurl'] . $mat[1];
 
@@ -736,6 +1135,50 @@ class Plugin {
 			$url = $uploads['baseurl'] . $mat[1];
 
 		} else {
+=======
+			$time = filemtime( $file ) ?: $time;
+
+			// Ensure the destination uploads folder exists for copying (use plugin prefix).
+			$uploads = $this->get_import_uploads_dir( $time, true );
+			if ( ! empty( $uploads['error'] ) ) {
+				return new WP_Error( 'upload_error', $uploads['error'] );
+			}
+
+			$target_dir = wp_normalize_path( $uploads['path'] );
+			$current_dir = wp_normalize_path( dirname( $file ) );
+
+			// If the file is already in the target directory, keep it.
+			if ( $current_dir === $target_dir ) {
+				$new_file = $file;
+				$url      = $uploads['url'] . '/' . $filename;
+			} else {
+				$filename = \wp_unique_filename( $uploads['path'], $filename );
+				$new_file = $uploads['path'] . '/' . $filename;
+
+				// Move the file into the plugin folder.
+				if ( ! @rename( $file, $new_file ) ) { // phpcs:ignore WordPress.WP.AlternativeFunctions.rename_rename
+					if ( false === @copy( $file, $new_file ) ) {
+						return new WP_Error( 'upload_error', __( 'The selected file could not be moved to the plugin folder.', 'add-from-server-reloaded' ) );
+					}
+					@unlink( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink
+				}
+
+				// Set correct file permissions.
+				$stat  = stat( dirname( $new_file ) );
+				$perms = $stat['mode'] & 0000666;
+				chmod( $new_file, $perms ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_chmod
+
+				$url = $uploads['url'] . '/' . $filename;
+			}
+
+		} else {
+			// Ensure the destination uploads folder exists for copying (use plugin prefix).
+			$uploads = $this->get_import_uploads_dir( $time, true );
+			if ( ! empty( $uploads['error'] ) ) {
+				return new WP_Error( 'upload_error', $uploads['error'] );
+			}
+
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 			// File is outside uploads directory - copy it.
 			$filename = \wp_unique_filename( $uploads['path'], basename( $file ) );
 			$new_file = $uploads['path'] . '/' . $filename;
@@ -825,7 +1268,11 @@ class Plugin {
 					$content .= ' ' . sprintf( __( 'Track %s.', 'add-from-server-reloaded' ), number_format_i18n( $track_number[0] ) );
 				}
 			}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 			if ( ! empty( $meta['genre'] ) ) {
 				/* translators: %s: genre */
 				$content .= ' ' . sprintf( __( 'Genre: %s.', 'add-from-server-reloaded' ), $meta['genre'] );
@@ -865,10 +1312,17 @@ class Plugin {
 		 * @param array  $attachment Attachment data.
 		 * @param string $file       File path.
 		 */
+<<<<<<< HEAD
 		$attachment = apply_filters( 'afsr_import_attachment_data', $attachment, $file );
 
 		// Backwards compatibility filter.
 		$attachment = apply_filters( 'afs-import_details', $attachment, $file, 0, 'current' );
+=======
+		$attachment = apply_filters( 'afsrreloaded_import_attachment_data', $attachment, $file );
+
+		// Backwards compatibility filter.
+		$attachment = apply_filters( 'afsrreloaded_import_details', $attachment, $file, 0, 'current' );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 		// Save the data.
 		$id = \wp_insert_attachment( $attachment, $new_file, 0 );
@@ -886,7 +1340,11 @@ class Plugin {
 			 * @param int    $id   Attachment ID.
 			 * @param string $file File path.
 			 */
+<<<<<<< HEAD
 			do_action( 'afsr_file_imported', $id, $file );
+=======
+			do_action( 'afsrreloaded_file_imported', $id, $file );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		}
 
 		return $id;
@@ -917,7 +1375,11 @@ class Plugin {
 	 */
 	public function main_content() {
 
+<<<<<<< HEAD
 		$url = admin_url( 'upload.php?page=add-from-server-reloaded' );
+=======
+		$url = admin_url( 'admin.php?page=add-from-server-reloaded' );
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 
 		$root = $this->get_root();
 		if ( ! $root ) {
@@ -1094,14 +1556,22 @@ class Plugin {
 		uasort( $files, $sort_by_text );
 
 		?>
+<<<<<<< HEAD
 		<div class="afsr-wrap">
 			<form method="post" action="<?php echo esc_url( $url ); ?>" id="afsr-import-form">
 			<div class="afsr-current-directory">
 				<strong class="afsr-location-label"><?php esc_html_e( '📂 Current Location:', 'add-from-server-reloaded' ); ?></strong> 
+=======
+		<div class="afsrreloaded-wrap">
+			<form method="post" action="<?php echo esc_url( $url ); ?>" id="afsrreloaded-import-form">
+			<div class="afsrreloaded-current-directory">
+				<strong class="afsrreloaded-location-label"><?php esc_html_e( '📂 Current Location:', 'add-from-server-reloaded' ); ?></strong> 
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 				<div id="cwd"><?php echo wp_kses_post( $dirparts ); ?></div>
 			</div>
 
 				<div style="margin-bottom: 15px;">
+<<<<<<< HEAD
 					<?php wp_nonce_field( 'afsr_import' ); ?>
 					<?php submit_button( __( 'Import Selected Files', 'add-from-server-reloaded' ), 'primary', 'import', false ); ?>
 					<button type="button" class="button" id="afsr-toggle-hidden" style="margin-left: 10px;">
@@ -1115,6 +1585,21 @@ class Plugin {
 					<thead>
 					<tr>
 						<td class="check-column"><input type="checkbox" id="afsr-select-all" /></td>
+=======
+					<?php wp_nonce_field( 'afsrreloaded_import' ); ?>
+					<?php submit_button( __( 'Import Selected Files', 'add-from-server-reloaded' ), 'primary', 'import', false ); ?>
+					<button type="button" class="button" id="afsrreloaded-toggle-hidden" style="margin-left: 10px;">
+						<?php esc_html_e( 'Show Hidden Files', 'add-from-server-reloaded' ); ?>
+					</button>
+					<span class="afsrreloaded-import-status" style="margin-left: 15px;"></span>
+					<span class="afsrreloaded-file-count" style="margin-left: 15px; color: #666;"></span>
+				</div>
+
+				<table class="widefat afsrreloaded-file-table">
+					<thead>
+					<tr>
+						<td class="check-column"><input type="checkbox" id="afsrreloaded-select-all" /></td>
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 						<td><?php esc_html_e( 'File', 'add-from-server-reloaded' ); ?></td>
 						<td><?php esc_html_e( 'Size', 'add-from-server-reloaded' ); ?></td>
 						<td><?php esc_html_e( 'Last Modified', 'add-from-server-reloaded' ); ?></td>
@@ -1142,7 +1627,11 @@ class Plugin {
 						$folder_label = $is_parent ? __( '(Go Back)', 'add-from-server-reloaded' ) : $dir['text'];
 
 						printf(
+<<<<<<< HEAD
 							'<tr class="afsr-folder-row">
+=======
+							'<tr class="afsrreloaded-folder-row">
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 								<th class="check-column">
 									%1$s
 								</th>
@@ -1213,7 +1702,11 @@ class Plugin {
 					</tbody>
 					<tfoot>
 					<tr>
+<<<<<<< HEAD
 						<td class="check-column"><input type="checkbox" id="afsr-select-all-footer" /></td>
+=======
+						<td class="check-column"><input type="checkbox" id="afsrreloaded-select-all-footer" /></td>
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 						<td><?php esc_html_e( 'File', 'add-from-server-reloaded' ); ?></td>
 						<td><?php esc_html_e( 'Size', 'add-from-server-reloaded' ); ?></td>
 					</tr>
@@ -1221,12 +1714,21 @@ class Plugin {
 				</table>
 
 				<br class="clear" />
+<<<<<<< HEAD
 				<?php wp_nonce_field( 'afsr_import' ); ?>
 				<?php submit_button( __( 'Import Selected Files', 'add-from-server-reloaded' ), 'primary', 'import', false ); ?>
 				<span class="afsr-import-status" style="margin-left: 15px;"></span>
 			</form>
 
 			<div class="afsr-help-section" style="margin-top: 30px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px;">
+=======
+				<?php wp_nonce_field( 'afsrreloaded_import' ); ?>
+				<?php submit_button( __( 'Import Selected Files', 'add-from-server-reloaded' ), 'primary', 'import', false ); ?>
+				<span class="afsrreloaded-import-status" style="margin-left: 15px;"></span>
+			</form>
+
+			<div class="afsrreloaded-help-section" style="margin-top: 30px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px;">
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 				<h2 style="margin-top: 0;"><?php esc_html_e( '📚 How to Use', 'add-from-server-reloaded' ); ?></h2>
 				<p style="font-size: 14px; line-height: 1.6;">
 					<?php esc_html_e( 'This plugin allows you to import files that are already on your server into the WordPress Media Library. Simply browse to the folder containing your files, select them (or select entire folders), and click "Import Selected Files".', 'add-from-server-reloaded' ); ?>
@@ -1235,7 +1737,11 @@ class Plugin {
 				<?php if ( \current_user_can( 'manage_options' ) ) : ?>
 					<h3 style="margin-top: 20px;"><?php esc_html_e( '⚙️ Change Root Directory', 'add-from-server-reloaded' ); ?></h3>
 					
+<<<<<<< HEAD
 					<?php \settings_errors( 'afsr_settings' ); ?>
+=======
+					<?php \settings_errors( 'afsrreloaded_settings' ); ?>
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 					
 					<p style="font-size: 14px;">
 						<?php
@@ -1248,17 +1754,30 @@ class Plugin {
 					</p>
 					
 					<form method="post" action="" style="margin-top: 15px;">
+<<<<<<< HEAD
 						<?php \wp_nonce_field( 'afsr_settings' ); ?>
 						<table class="form-table" style="margin-top: 0;">
 							<tr>
 								<th scope="row" style="padding-left: 0;">
 									<label for="afsr_root_directory"><?php esc_html_e( 'Root Directory Path:', 'add-from-server-reloaded' ); ?></label>
+=======
+						<?php \wp_nonce_field( 'afsrreloaded_settings' ); ?>
+						<table class="form-table" style="margin-top: 0;">
+							<tr>
+								<th scope="row" style="padding-left: 0;">
+									<label for="afsrreloaded_root_directory"><?php esc_html_e( 'Root Directory Path:', 'add-from-server-reloaded' ); ?></label>
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 								</th>
 								<td>
 									<input 
 										type="text" 
+<<<<<<< HEAD
 										name="afsr_root_directory" 
 										id="afsr_root_directory" 
+=======
+										name="afsrreloaded_root_directory" 
+										id="afsrreloaded_root_directory" 
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 										class="regular-text" 
 										placeholder="/var/www/your-files/" 
 										value="<?php echo esc_attr( rtrim( $root, '/' ) ); ?>"
@@ -1275,10 +1794,17 @@ class Plugin {
 							</tr>
 						</table>
 						<p>
+<<<<<<< HEAD
 							<input type="submit" name="afsr_save_settings" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'add-from-server-reloaded' ); ?>" />
 							<?php if ( \get_option( 'afsr_root_directory', '' ) ) : ?>
 								<input type="submit" name="afsr_save_settings" class="button" value="<?php esc_attr_e( 'Reset to Default', 'add-from-server-reloaded' ); ?>" 
 									onclick="document.getElementById('afsr_root_directory').value=''; return true;" />
+=======
+							<input type="submit" name="afsrreloaded_save_settings" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'add-from-server-reloaded' ); ?>" />
+							<?php if ( \get_option( 'afsrreloaded_root_directory', '' ) ) : ?>
+								<input type="submit" name="afsrreloaded_save_settings" class="button" value="<?php esc_attr_e( 'Reset to Default', 'add-from-server-reloaded' ); ?>" 
+									onclick="document.getElementById('afsrreloaded_root_directory').value=''; return true;" />
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 							<?php endif; ?>
 						</p>
 					</form>

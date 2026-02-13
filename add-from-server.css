@@ -6,22 +6,37 @@
  */
 
 /* Original hidden file styles */
+<<<<<<< HEAD
 .afsr-wrap .widefat tbody tr.doesnt-meet-guidelines,
 .afsr-wrap .widefat tbody tr.unreadable {
+=======
+.afsrreloaded-wrap .widefat tbody tr.doesnt-meet-guidelines,
+.afsrreloaded-wrap .widefat tbody tr.unreadable {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	background-color: #FFE8EE;
 	display: none;
 }
 
+<<<<<<< HEAD
 .afsr-wrap .widefat.showhidden tbody tr.doesnt-meet-guidelines,
 .afsr-wrap .widefat.showhidden tbody tr.unreadable {
 	display: table-row;
 }
 
 .afsr-wrap .widefat.showhidden .hidden-toggle {
+=======
+.afsrreloaded-wrap .widefat.showhidden tbody tr.doesnt-meet-guidelines,
+.afsrreloaded-wrap .widefat.showhidden tbody tr.unreadable {
+	display: table-row;
+}
+
+.afsrreloaded-wrap .widefat.showhidden .hidden-toggle {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	display: none;
 }
 
 /* Enhanced styles for better UX */
+<<<<<<< HEAD
 .afsr-wrap {
 	max-width: 100%;
 }
@@ -44,46 +59,98 @@
 }
 
 .afsr-file-table tbody tr.afsr-disabled-row label {
+=======
+.afsrreloaded-wrap {
+	max-width: 100%;
+}
+
+.afsrreloaded-file-table {
+	margin-top: 10px;
+}
+
+.afsrreloaded-file-table thead td,
+.afsrreloaded-file-table tfoot td {
+	font-weight: 600;
+}
+
+.afsrreloaded-file-table tbody tr:not(.afsrreloaded-folder-row):hover {
+	background-color: #f5f5f5;
+}
+
+.afsrreloaded-file-table tbody tr.afsrreloaded-disabled-row {
+	opacity: 0.6;
+}
+
+.afsrreloaded-file-table tbody tr.afsrreloaded-disabled-row label {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	color: #a0a5aa;
 	cursor: not-allowed;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr.doesnt-meet-guidelines label::after {
+=======
+.afsrreloaded-file-table tbody tr.doesnt-meet-guidelines label::after {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	content: " ⚠️";
 	color: #d63638;
 	font-size: 14px;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr.unreadable label::after {
+=======
+.afsrreloaded-file-table tbody tr.unreadable label::after {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	content: " 🔒";
 	color: #d63638;
 	font-size: 14px;
 }
 
 /* Directory link styling */
+<<<<<<< HEAD
 .afsr-file-table tbody tr td a {
+=======
+.afsrreloaded-file-table tbody tr td a {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	text-decoration: none;
 	color: #2271b1;
 	font-weight: 500;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr:not(.afsr-folder-row) td a:hover {
+=======
+.afsrreloaded-file-table tbody tr:not(.afsrreloaded-folder-row) td a:hover {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	color: #135e96;
 	text-decoration: underline;
 }
 
 /* Hidden toggle link */
+<<<<<<< HEAD
 .afsr-file-table tbody tr.hidden-toggle a {
+=======
+.afsrreloaded-file-table tbody tr.hidden-toggle a {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	color: #d63638;
 	font-style: italic;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr.hidden-toggle a:hover {
+=======
+.afsrreloaded-file-table tbody tr.hidden-toggle a:hover {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	color: #b32d2e;
 }
 
 /* Search box styling */
+<<<<<<< HEAD
 .afsr-search-box {
+=======
+.afsrreloaded-search-box {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	background: #fff;
 	border: 1px solid #c3c4c7;
 	border-radius: 4px;
@@ -93,37 +160,61 @@
 	gap: 10px;
 }
 
+<<<<<<< HEAD
 .afsr-search-box #afsr-file-search {
+=======
+.afsrreloaded-search-box #afsrreloaded-file-search {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	flex: 1;
 	margin: 0;
 }
 
+<<<<<<< HEAD
 .afsr-search-box .button {
+=======
+.afsrreloaded-search-box .button {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	margin: 0;
 }
 
 /* Import status */
+<<<<<<< HEAD
 .afsr-import-status {
+=======
+.afsrreloaded-import-status {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	display: inline-block;
 	vertical-align: middle;
 	color: #2271b1;
 	font-weight: 500;
 }
 
+<<<<<<< HEAD
 .afsr-import-status .spinner {
+=======
+.afsrreloaded-import-status .spinner {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	margin: 0 5px 0 0;
 	vertical-align: middle;
 }
 
 /* File count */
+<<<<<<< HEAD
 .afsr-file-count {
+=======
+.afsrreloaded-file-count {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	display: inline-block;
 	font-size: 13px;
 	color: #646970;
 }
 
 /* Current directory breadcrumb */
+<<<<<<< HEAD
 .afsr-current-directory {
+=======
+.afsrreloaded-current-directory {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	background: #fff !important;
 	padding: 15px !important;
 	border: 1px solid #ddd !important;
@@ -131,7 +222,11 @@
 	margin-bottom: 15px !important;
 }
 
+<<<<<<< HEAD
 .afsr-location-label {
+=======
+.afsrreloaded-location-label {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	color: #000 !important;
 	font-size: 14px !important;
 	font-weight: 600 !important;
@@ -172,21 +267,33 @@
 }
 
 /* Help section */
+<<<<<<< HEAD
 .afsr-help-section {
+=======
+.afsrreloaded-help-section {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	background: #f9f9f9;
 	border: 1px solid #dcdcde;
 	border-radius: 4px;
 	padding: 20px;
 }
 
+<<<<<<< HEAD
 .afsr-help-section h2 {
+=======
+.afsrreloaded-help-section h2 {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	margin-top: 0;
 	font-size: 18px;
 	border-bottom: 1px solid #dcdcde;
 	padding-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .afsr-help-section pre.afsr-code-block {
+=======
+.afsrreloaded-help-section pre.afsrreloaded-code-block {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	background: #f5f5f5;
 	color: #000;
 	padding: 15px;
@@ -197,7 +304,11 @@
 	line-height: 1.5;
 }
 
+<<<<<<< HEAD
 .afsr-help-section pre.afsr-code-block code {
+=======
+.afsrreloaded-help-section pre.afsrreloaded-code-block code {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	background: transparent;
 	color: #000;
 	padding: 0;
@@ -206,7 +317,11 @@
 	font-weight: 600;
 }
 
+<<<<<<< HEAD
 .afsr-help-section code.afsr-inline-code {
+=======
+.afsrreloaded-help-section code.afsrreloaded-inline-code {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	background: #f5f5f5;
 	color: #000;
 	padding: 3px 8px;
@@ -219,22 +334,38 @@
 
 /* Responsive adjustments */
 @media screen and (max-width: 782px) {
+<<<<<<< HEAD
 	.afsr-search-box {
+=======
+	.afsrreloaded-search-box {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		flex-direction: column;
 		align-items: stretch;
 	}
 
+<<<<<<< HEAD
 	.afsr-search-box #afsr-file-search {
 		width: 100%;
 	}
 
 	.afsr-file-count {
+=======
+	.afsrreloaded-search-box #afsrreloaded-file-search {
+		width: 100%;
+	}
+
+	.afsrreloaded-file-count {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		display: block;
 		margin-top: 10px;
 		margin-left: 0 !important;
 	}
 
+<<<<<<< HEAD
 	.afsr-import-status {
+=======
+	.afsrreloaded-import-status {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 		display: block;
 		margin-top: 10px;
 		margin-left: 0 !important;
@@ -266,12 +397,21 @@
 }
 
 /* File size and date columns */
+<<<<<<< HEAD
 .afsr-file-table tbody tr td:nth-child(3),
 .afsr-file-table tbody tr td:nth-child(4),
 .afsr-file-table thead td:nth-child(3),
 .afsr-file-table thead td:nth-child(4),
 .afsr-file-table tfoot td:nth-child(3),
 .afsr-file-table tfoot td:nth-child(4) {
+=======
+.afsrreloaded-file-table tbody tr td:nth-child(3),
+.afsrreloaded-file-table tbody tr td:nth-child(4),
+.afsrreloaded-file-table thead td:nth-child(3),
+.afsrreloaded-file-table thead td:nth-child(4),
+.afsrreloaded-file-table tfoot td:nth-child(3),
+.afsrreloaded-file-table tfoot td:nth-child(4) {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	text-align: right;
 	font-size: 12px;
 	color: #646970;
@@ -279,20 +419,33 @@
 	vertical-align: middle;
 }
 
+<<<<<<< HEAD
 .afsr-file-table thead td:nth-child(3),
 .afsr-file-table thead td:nth-child(4) {
+=======
+.afsrreloaded-file-table thead td:nth-child(3),
+.afsrreloaded-file-table thead td:nth-child(4) {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	vertical-align: bottom;
 }
 
 /* Checkbox column */
+<<<<<<< HEAD
 .afsr-file-table .check-column {
+=======
+.afsrreloaded-file-table .check-column {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	width: 50px;
 	padding: 12px 10px;
 	vertical-align: middle;
 	text-align: center;
 }
 
+<<<<<<< HEAD
 .afsr-file-table .check-column input[type="checkbox"] {
+=======
+.afsrreloaded-file-table .check-column input[type="checkbox"] {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	margin: 0 auto;
 	width: 18px;
 	height: 18px;
@@ -300,22 +453,36 @@
 	accent-color: #2271b1;
 }
 
+<<<<<<< HEAD
 .afsr-file-table .check-column input[type="checkbox"]:hover:not(:disabled) {
+=======
+.afsrreloaded-file-table .check-column input[type="checkbox"]:hover:not(:disabled) {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	transform: scale(1.1);
 	transition: transform 0.1s ease;
 }
 
+<<<<<<< HEAD
 .afsr-file-table .check-column input[type="checkbox"]:disabled {
+=======
+.afsrreloaded-file-table .check-column input[type="checkbox"]:disabled {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	opacity: 0.5;
 	cursor: not-allowed;
 }
 
+<<<<<<< HEAD
 .afsr-file-table thead .check-column,
 .afsr-file-table tfoot .check-column {
+=======
+.afsrreloaded-file-table thead .check-column,
+.afsrreloaded-file-table tfoot .check-column {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	vertical-align: middle;
 }
 
 /* Improved table spacing */
+<<<<<<< HEAD
 .afsr-file-table tbody tr td {
 	padding: 12px 15px;
 }
@@ -326,30 +493,62 @@
 
 .afsr-file-table thead tr td,
 .afsr-file-table tfoot tr td {
+=======
+.afsrreloaded-file-table tbody tr td {
+	padding: 12px 15px;
+}
+
+.afsrreloaded-file-table tbody tr th {
+	padding: 12px 10px;
+}
+
+.afsrreloaded-file-table thead tr td,
+.afsrreloaded-file-table tfoot tr td {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	padding: 12px 15px;
 }
 
 /* Parent folder highlight */
+<<<<<<< HEAD
 .afsr-file-table tbody tr td a[href*="Parent"] {
+=======
+.afsrreloaded-file-table tbody tr td a[href*="Parent"] {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	color: #8c8f94;
 	font-weight: 400;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr td a[href*="Parent"]::before {
+=======
+.afsrreloaded-file-table tbody tr td a[href*="Parent"]::before {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	content: "⬆️ ";
 }
 
 /* Folder row styling */
+<<<<<<< HEAD
 .afsr-file-table tbody tr.afsr-folder-row {
+=======
+.afsrreloaded-file-table tbody tr.afsrreloaded-folder-row {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	background: #f6f7f7;
 	cursor: pointer;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr.afsr-folder-row:hover {
 	background: #e8f4f8;
 }
 
 .afsr-file-table tbody tr.afsr-folder-row td a {
+=======
+.afsrreloaded-file-table tbody tr.afsrreloaded-folder-row:hover {
+	background: #e8f4f8;
+}
+
+.afsrreloaded-file-table tbody tr.afsrreloaded-folder-row td a {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	color: #135e96;
 	font-weight: 500;
 	display: inline-block;
@@ -358,17 +557,29 @@
 	text-decoration: none;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr.afsr-folder-row td a:focus {
+=======
+.afsrreloaded-file-table tbody tr.afsrreloaded-folder-row td a:focus {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	outline: none;
 	box-shadow: none;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr.afsr-folder-row:hover td a {
+=======
+.afsrreloaded-file-table tbody tr.afsrreloaded-folder-row:hover td a {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	color: #0a4b78;
 	text-decoration: none;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr.afsr-folder-row td small {
+=======
+.afsrreloaded-file-table tbody tr.afsrreloaded-folder-row td small {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	display: inline-block;
 	color: #646970;
 	font-size: 12px;
@@ -377,16 +588,28 @@
 }
 
 /* Accessibility improvements */
+<<<<<<< HEAD
 .afsr-file-table tbody tr:not(.afsr-folder-row):focus-within {
+=======
+.afsrreloaded-file-table tbody tr:not(.afsrreloaded-folder-row):focus-within {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	outline: 2px solid #2271b1;
 	outline-offset: -2px;
 }
 
+<<<<<<< HEAD
 .afsr-file-table tbody tr.afsr-folder-row:focus-within {
 	outline: none;
 }
 
 .afsr-file-table input[type="checkbox"]:focus {
+=======
+.afsrreloaded-file-table tbody tr.afsrreloaded-folder-row:focus-within {
+	outline: none;
+}
+
+.afsrreloaded-file-table input[type="checkbox"]:focus {
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	outline: 2px solid #2271b1;
 	outline-offset: 2px;
 	box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.1);
@@ -396,10 +619,17 @@
 /* Print styles */
 @media print {
 
+<<<<<<< HEAD
 	.afsr-search-box,
 	.afsr-help-section,
 	.afsr-import-status,
 	.afsr-file-count,
+=======
+	.afsrreloaded-search-box,
+	.afsrreloaded-help-section,
+	.afsrreloaded-import-status,
+	.afsrreloaded-file-count,
+>>>>>>> 7a9d599 (Initial commit of Add From Server Reloaded plugin v5.1.0)
 	.check-column,
 	.button {
 		display: none !important;
