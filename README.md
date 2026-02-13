@@ -1,6 +1,6 @@
 # Add From Server Reloaded
 
-![WordPress Plugin Version](https://img.shields.io/badge/version-5.0.0-blue)
+![WordPress Plugin Version](https://img.shields.io/badge/version-5.1.0-blue)
 ![WordPress Compatibility](https://img.shields.io/badge/WordPress-6.0--6.8-brightgreen)
 ![PHP Compatibility](https://img.shields.io/badge/PHP-7.4--8.3-purple)
 ![License](https://img.shields.io/badge/license-GPL--3.0-orange)
@@ -159,7 +159,7 @@ No. The plugin detects duplicates and prevents re-importing files that already e
 
 ---
 
-## What's New in Version 5.0.0
+## What's New in Version 5.1.0
 
 ### Major Update - October 25, 2025
 
@@ -222,7 +222,7 @@ No. The plugin detects duplicates and prevents re-importing files that already e
 
 ## Compatibility
 
-- WordPress 6.0 - 6.8
+- WordPress 6.0 - 6.9.1
 - PHP 7.4 - 8.3
 - Works with WooCommerce
 - Works with page builders

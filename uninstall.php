@@ -53,11 +53,3 @@ function afsrreloaded_uninstall() {
 
 // Run the uninstall function.
 afsrreloaded_uninstall();
-
-
-
-
-
-
-
-

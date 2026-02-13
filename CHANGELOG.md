@@ -1,6 +1,6 @@
 # Add From Server Reloaded - Version History
 
-## Version 5.0.0 - October 25, 2025
+## Version 5.0.1 - October 25, 2025
 
 ### 🎉 MAJOR UPDATE - Complete Plugin Overhaul
 
@@ -298,6 +298,7 @@ This is a massive update that brings the plugin into 2025 with modern features, 
 - ✅ WordPress 6.6
 - ✅ WordPress 6.7
 - ✅ WordPress 6.8
+- ✅ WordPress 6.9.1
 
 ### PHP Versions
 - ✅ PHP 7.4
