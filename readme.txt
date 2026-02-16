@@ -219,9 +219,16 @@ This is a massive update that brings the plugin into 2025 with modern features, 
 * Proper database query caching considerations
 * Follows WordPress filesystem best practices
 
+### 5.1.0 ##
+* Fixed : Invalid Date Folders Are Fixed
+* Fixed : Empty Upload Folders Are No Longer Created:
+* Updated : All Imports Now Go to One Plugin Folder
+* Added : Some files were not imported because their file types are restricted for security reasons (php, phtml, phps, pht, phar, exe, sh, bat, cmd).
+* Updated : Better Result Messages (Folder vs Individual Files)
+
 **📦 COMPATIBILITY**
 
-* ✅ WordPress 6.0 - 6.8
+* ✅ WordPress 6.0 - 6.9.1
 * ✅ PHP 7.4 - 8.3
 * ✅ Works with WooCommerce
 * ✅ Works with page builders
@@ -231,7 +238,7 @@ This is a massive update that brings the plugin into 2025 with modern features, 
 **🎯 WHY UPGRADE?**
 
 The original "Add From Server" plugin hasn't been updated since 2020 and doesn't work with modern WordPress. This version:
-- Works with WordPress 6.7+
+- Works with WordPress 6.9.1
 - Fixes critical security vulnerabilities
 - Adds features users have been requesting
 - Has active support and updates
@@ -240,6 +247,9 @@ The original "Add From Server" plugin hasn't been updated since 2020 and doesn't
 **⚠️ BREAKING CHANGES**
 
 None! This version is 100% backward compatible. All your existing settings will work exactly as before.
+
+= 5.0.0 - 2025-10-25 =
+* Major update: new UI, modern features, security, WordPress 6.8 compatible. 100% backward compatible.
 
 = 4.1.2 - 2025-10-25 =  
 * WordPress Plugin Check compliance, internationalization support, output escaping  
@@ -254,6 +264,7 @@ None! This version is 100% backward compatible. All your existing settings will 
 
 == Upgrade Notice ==
 
-* 5.0.0 – Major update: new UI, modern features, security, WordPress 6.8 compatible. 100% backward compatible.  
+* 5.1.0 – Fix duplicate folders creation.
+* 5.0.0 – Major update: new UI, modern features, security, WordPress 6.8 compatible. 100% backward compatible.
 * 4.1.2 – Critical fix for folder name display & navigation.  
 * 4.1.0 – Namespace update for WordPress.org compliance.

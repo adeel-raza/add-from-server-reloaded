@@ -1,7 +1,16 @@
-# Add From Server Reloaded
+# Add From Server Reloaded #
+Contributors: dd32, elearningevolve, adeelraza_786@hotmail.com
+Donate link: https://link.elearningevolve.com/self-pay
+Tags: upload-limit, large-files, ftp, import, fileupload
+Requires at least: 6.0
+Tested up to: 6.9.1
+Requires PHP: 7.4
+Stable tag: 5.1.0
+License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 ![WordPress Plugin Version](https://img.shields.io/badge/version-5.1.0-blue)
-![WordPress Compatibility](https://img.shields.io/badge/WordPress-6.0--6.8-brightgreen)
+![WordPress Compatibility](https://img.shields.io/badge/WordPress-6.0--6.9.1-brightgreen)
 ![PHP Compatibility](https://img.shields.io/badge/PHP-7.4--8.3-purple)
 ![License](https://img.shields.io/badge/license-GPL--3.0-orange)
 
@@ -112,14 +121,14 @@ Tired of seeing *"The uploaded file exceeds the upload_max_filesize directive"* 
 
 1. Upload the `add-from-server-reloaded` folder to `/wp-content/plugins/`
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Navigate to Media > Add From Server Reloaded
+3. Login to WP Admin -> Click Side Menu -> Add From Server Reloaded  
 4. Browse and import your files!
 
 ### Changing the Root Directory
 
 By default, the plugin browses from your WordPress installation directory. To change this:
 
-1. Go to Media > Add From Server Reloaded
+1. Login to WP Admin -> Click Side Menu -> Add From Server Reloaded  
 2. Scroll to the bottom "Change Root Directory" section
 3. Enter the full server path (e.g., `/var/www/media/`)
 4. Click "Save Changes"
@@ -159,7 +168,7 @@ No. The plugin detects duplicates and prevents re-importing files that already e
 
 ---
 
-## What's New in Version 5.1.0
+## What's New in Version 5.0.0
 
 ### Major Update - October 25, 2025
 
@@ -205,8 +214,15 @@ No. The plugin detects duplicates and prevents re-importing files that already e
 - Fixed: Deprecated WordPress functions causing errors
 - Fixed: Non-responsive interface on mobile devices
 
-[View Full Changelog](CHANGELOG.md)
 
+
+## Changelog ##
+### 5.1.0 ##
+* Fixed : Invalid Date Folders Are Fixed
+* Fixed : Empty Upload Folders Are No Longer Created:
+* Updated : All Imports Now Go to One Plugin Folder
+* Added : Some files were not imported because their file types are restricted for security reasons (php, phtml, phps, pht, phar, exe, sh, bat, cmd).
+* Updated : Better Result Messages (Folder vs Individual Files)
 ---
 
 ## Screenshots
