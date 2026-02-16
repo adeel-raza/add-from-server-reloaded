@@ -1,20 +1,18 @@
 # Add From Server Reloaded #
 ![WordPress Plugin Version](https://img.shields.io/badge/version-5.0.0-blue)
-![WordPress Compatibility](https://img.shields.io/badge/WordPress-6.0--6.8-brightgreen)
+![WordPress Compatibility](https://img.shields.io/badge/WordPress-6.0--6.9.1-brightgreen)
 ![PHP Compatibility](https://img.shields.io/badge/PHP-7.4--8.3-purple)
 ![License](https://img.shields.io/badge/license-GPL--3.0-orange)
 
 **Upload files larger than your hosting allows. Import from server to WordPress Media Library. Batch import, migrations, no upload limit. WordPress 6.8+ compatible.**
 
----
----<h2 align="center">💝 Support This Project</h2><p align="center"><strong>If you find this project helpful, please consider supporting it:</strong></p><p align="center"><a href="https://link.elearningevolve.com/self-pay" target="_blank">[![Support via Stripe](https://img.shields.io/badge/Support%20via%20Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://link.elearningevolve.com/self-pay)</p><p align="center"><a href="https://link.elearningevolve.com/self-pay" target="_blank"><strong>👉 Click here to support via Stripe 👈</strong></a></p>---
+<h2 align="center">💝 Support This Project</h2><p align="center"><strong>If you find this project helpful, please consider supporting it:</strong></p><p align="center"><a href="https://link.elearningevolve.com/self-pay" target="_blank">[![Support via Stripe](https://img.shields.io/badge/Support%20via%20Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://link.elearningevolve.com/self-pay)</p><p align="center"><a href="https://link.elearningevolve.com/self-pay" target="_blank"><strong>👉 Click here to support via Stripe 👈</strong></a></p>
+
 ## Fix WordPress Upload Limit Issues - The Easy Way
 
 Tired of seeing *"The uploaded file exceeds the upload_max_filesize directive"* errors? Can't upload large videos because your hosting limits uploads to 64MB? Need to bulk import hundreds of product images but keep timing out?
 
 **Add From Server Reloaded** solves all these problems by letting you import files directly from your server to WordPress Media Library - bypassing upload limits entirely. No PHP configuration needed. No server access required.
-
----
 
 ## Common Upload Limit Problems We Solve
 
@@ -160,13 +158,13 @@ No. The plugin detects duplicates and prevents re-importing files that already e
 
 ## Changelog ##
 ### 5.1.0 ##
-* Fixed : Invalid Date Folders Are Fixed ,Empty Upload Folders Are No Longer Created
-* Updated : All Imports Folders or Files Now Go to on  Seprate Folder with plugin name
-* Added : This message will appear after you import a folder or file:
-Some files were not imported due to security reasons.
-Files with these types are not allowed and were skipped: PHP, PHTML, PHPS, PHT, PHAR, EXE, SH, BAT, CMD.
-* Updated : Better Result Messages (Folder vs Individual Files)
----
+* Fixed: Invalid date folders are no longer created, and empty upload folders are prevented.
+
+* Updated: All imported files and folders are now placed in a separate folder named after the plugin.
+
+* Added: After importing, a message will display for files skipped due to security restrictions. The following file types are blocked: PHP, PHTML, PHPS, PHT, PHAR, EXE, SH, BAT, CMD.
+
+* Updated: Improved result messages for clarity, differentiating between folder and individual file imports.
 
 ## What's New in Version 5.0.0
 
