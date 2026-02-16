@@ -144,6 +144,13 @@ Absolutely. No server configuration changes required.
 
 == Changelog ==
 
+### 5.1.0 ##
+* Fixed : Invalid Date Folders Are Fixed ,Empty Upload Folders Are No Longer Created
+* Updated : All Imports folders or files Now Go to on  Seprate Folder with plugin name
+* Added : user display this message files were skipped for security reasons.
+Some files in the selected folders were not imported because their file types are not allowed: PHP, PHTML, PHPS, PHT, PHAR, EXE, SH, BAT, CMD.
+* Updated : Better Result Messages (Folder vs Individual Files)
+
 = 5.0.0 - October 25, 2025 =
 
 **🎉 MAJOR UPDATE - Complete Plugin Overhaul**
@@ -219,12 +226,7 @@ This is a massive update that brings the plugin into 2025 with modern features, 
 * Proper database query caching considerations
 * Follows WordPress filesystem best practices
 
-### 5.1.0 ##
-* Fixed : Invalid Date Folders Are Fixed
-* Fixed : Empty Upload Folders Are No Longer Created:
-* Updated : All Imports Now Go to One Plugin Folder
-* Added : Some files were not imported because their file types are restricted for security reasons (php, phtml, phps, pht, phar, exe, sh, bat, cmd).
-* Updated : Better Result Messages (Folder vs Individual Files)
+
 
 **📦 COMPATIBILITY**
 

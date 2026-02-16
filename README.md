@@ -9,11 +9,6 @@ Stable tag: 5.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-![WordPress Plugin Version](https://img.shields.io/badge/version-5.1.0-blue)
-![WordPress Compatibility](https://img.shields.io/badge/WordPress-6.0--6.9.1-brightgreen)
-![PHP Compatibility](https://img.shields.io/badge/PHP-7.4--8.3-purple)
-![License](https://img.shields.io/badge/license-GPL--3.0-orange)
-
 **Upload files larger than your hosting allows. Import from server to WordPress Media Library. Batch import, migrations, no upload limit. WordPress 6.8+ compatible.**
 
 ---
@@ -218,10 +213,10 @@ No. The plugin detects duplicates and prevents re-importing files that already e
 
 ## Changelog ##
 ### 5.1.0 ##
-* Fixed : Invalid Date Folders Are Fixed
-* Fixed : Empty Upload Folders Are No Longer Created:
-* Updated : All Imports Now Go to One Plugin Folder
-* Added : Some files were not imported because their file types are restricted for security reasons (php, phtml, phps, pht, phar, exe, sh, bat, cmd).
+* Fixed : Invalid Date Folders Are Fixed ,Empty Upload Folders Are No Longer Created
+* Updated : All Imports Folders or Files Now Go to on  Seprate Folder with plugin name
+* Added : user display this message files were skipped for security reasons.
+Some files in the selected folders were not imported because their file types are not allowed: PHP, PHTML, PHPS, PHT, PHAR, EXE, SH, BAT, CMD.
 * Updated : Better Result Messages (Folder vs Individual Files)
 ---
 
