@@ -93,7 +93,7 @@ Absolutely. No server configuration changes are required.
 
 == Changelog ==
 
-= 5.1.0 =
+= 5.1.0 – 2026-02-16 =
 * Fixed: Invalid date folders, empty upload folders no longer created.  
 * Updated: Imports now go into separate folders with the plugin name.  
 * Added: Message displayed after importing a folder or file:  
