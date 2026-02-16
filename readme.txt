@@ -146,10 +146,12 @@ Absolutely. No server configuration changes required.
 
 ### 5.1.0 ##
 * Fixed : Invalid Date Folders Are Fixed ,Empty Upload Folders Are No Longer Created
-* Updated : All Imports folders or files Now Go to on  Seprate Folder with plugin name
-* Added : user display this message files were skipped for security reasons.
-Some files in the selected folders were not imported because their file types are not allowed: PHP, PHTML, PHPS, PHT, PHAR, EXE, SH, BAT, CMD.
+* Updated : All Imports Folders or Files Now Go to on  Seprate Folder with plugin name
+* Added : This message will appear after you import a folder or file:
+Some files were not imported due to security reasons.
+Files with these types are not allowed and were skipped: PHP, PHTML, PHPS, PHT, PHAR, EXE, SH, BAT, CMD.
 * Updated : Better Result Messages (Folder vs Individual Files)
+---
 
 = 5.0.0 - October 25, 2025 =
 
@@ -266,7 +268,7 @@ None! This version is 100% backward compatible. All your existing settings will 
 
 == Upgrade Notice ==
 
-* 5.1.0 – Fix duplicate folders creation.
+* 5.1.0 – Invalid Date Folders Are Fixed ,Empty Upload Folders Are No Longer Created
 * 5.0.0 – Major update: new UI, modern features, security, WordPress 6.8 compatible. 100% backward compatible.
 * 4.1.2 – Critical fix for folder name display & navigation.  
 * 4.1.0 – Namespace update for WordPress.org compliance.

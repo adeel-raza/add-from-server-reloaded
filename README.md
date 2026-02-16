@@ -1,13 +1,8 @@
 # Add From Server Reloaded #
-Contributors: dd32, elearningevolve, adeelraza_786@hotmail.com
-Donate link: https://link.elearningevolve.com/self-pay
-Tags: upload-limit, large-files, ftp, import, fileupload
-Requires at least: 6.0
-Tested up to: 6.9.1
-Requires PHP: 7.4
-Stable tag: 5.1.0
-License: GPLv3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+![WordPress Plugin Version](https://img.shields.io/badge/version-5.0.0-blue)
+![WordPress Compatibility](https://img.shields.io/badge/WordPress-6.0--6.8-brightgreen)
+![PHP Compatibility](https://img.shields.io/badge/PHP-7.4--8.3-purple)
+![License](https://img.shields.io/badge/license-GPL--3.0-orange)
 
 **Upload files larger than your hosting allows. Import from server to WordPress Media Library. Batch import, migrations, no upload limit. WordPress 6.8+ compatible.**
 
@@ -163,6 +158,16 @@ No. The plugin detects duplicates and prevents re-importing files that already e
 
 ---
 
+## Changelog ##
+### 5.1.0 ##
+* Fixed : Invalid Date Folders Are Fixed ,Empty Upload Folders Are No Longer Created
+* Updated : All Imports Folders or Files Now Go to on  Seprate Folder with plugin name
+* Added : This message will appear after you import a folder or file:
+Some files were not imported due to security reasons.
+Files with these types are not allowed and were skipped: PHP, PHTML, PHPS, PHT, PHAR, EXE, SH, BAT, CMD.
+* Updated : Better Result Messages (Folder vs Individual Files)
+---
+
 ## What's New in Version 5.0.0
 
 ### Major Update - October 25, 2025
@@ -208,17 +213,6 @@ No. The plugin detects duplicates and prevents re-importing files that already e
 - Fixed: No visual feedback during batch operations
 - Fixed: Deprecated WordPress functions causing errors
 - Fixed: Non-responsive interface on mobile devices
-
-
-
-## Changelog ##
-### 5.1.0 ##
-* Fixed : Invalid Date Folders Are Fixed ,Empty Upload Folders Are No Longer Created
-* Updated : All Imports Folders or Files Now Go to on  Seprate Folder with plugin name
-* Added : user display this message files were skipped for security reasons.
-Some files in the selected folders were not imported because their file types are not allowed: PHP, PHTML, PHPS, PHT, PHAR, EXE, SH, BAT, CMD.
-* Updated : Better Result Messages (Folder vs Individual Files)
----
 
 ## Screenshots
 

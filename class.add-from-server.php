@@ -518,15 +518,17 @@ class Plugin {
 					echo '<br><small>';
 					foreach ( $folders as $folder ) {
 						$folder_name = basename( $folder ) ?: $folder;
-						echo '<strong>' . \esc_html( $folder_name ) . '</strong> ' . \esc_html__( 'folder uploaded.', 'add-from-server-reloaded' ) . '<br>';
+						echo '<strong>' . esc_html( $folder_name ) . '</strong> ' . esc_html__( 'folder uploaded.', 'add-from-server-reloaded' ) . '<br>';
 					}
 					echo '</small>';
-				} elseif ( ! empty( $selected_files ) && ! empty( $imported_files ) ) {
-					// Show imported file names for direct file selection.
+				}
+
+				if ( ! empty( $imported_files ) ) {
+					// Show imported file names (works for folder and direct selection).
 					echo '<br><small>';
 					foreach ( $imported_files as $file ) {
-						$edit_link = \admin_url( 'post.php?post=' . $file['id'] . '&action=edit' );
-						echo '<a href="' . \esc_url( $edit_link ) . '" target="_blank">' . \esc_html( $file['filename'] ) . '</a><br>';
+						$edit_link = admin_url( 'post.php?post=' . $file['id'] . '&action=edit' );
+						echo '<a href="' . esc_url( $edit_link ) . '" target="_blank">' . esc_html( $file['filename'] ) . '</a><br>';
 					}
 					echo '</small>';
 				}
@@ -544,7 +546,7 @@ class Plugin {
 				);
 				echo '</strong>';
 
-				if ( empty( $folders ) && ! empty( $selected_files ) && ! empty( $duplicate_files ) ) {
+				if ( ! empty( $duplicate_files ) ) {
 					echo '<br><small>';
 					foreach ( $duplicate_files as $dup ) {
 						echo '<strong>' . esc_html( $dup['filename'] ) . '</strong>: ' . wp_kses_post( $dup['message'] ) . '<br>';
@@ -792,6 +794,23 @@ class Plugin {
 	}
 
 	/**
+	 * Get file hash to detect duplicates reliably.
+	 *
+	 * @since 5.0.2
+	 *
+	 * @param  string $file File path.
+	 * @return string|false File MD5 hash or false on error.
+	 */
+	protected function get_file_hash( $file ) {
+		if ( ! file_exists( $file ) || ! is_readable( $file ) ) {
+			return false;
+		}
+		
+		$hash = md5_file( $file );
+		return $hash ? $hash : false;
+	}
+
+	/**
 	 * Check if file is already in media library.
 	 *
 	 * @since 4.0.0
@@ -802,37 +821,51 @@ class Plugin {
 	protected function check_if_duplicate( $file ) {
 		global $wpdb;
 		
-		$uploads = \wp_upload_dir( null, false );
 		$file    = \wp_normalize_path( $file );
+		$filename = \basename( $file );
 		
-		// Check if file is in uploads directory.
+		// First, check by file hash (most reliable).
+		$file_hash = $this->get_file_hash( $file );
+		if ( $file_hash ) {
+			$attachment_id = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+				$wpdb->prepare(
+					"SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_afsrreloaded_file_hash' AND meta_value = %s LIMIT 1",
+					$file_hash
+				)
+			);
+			if ( $attachment_id ) {
+				return (int) $attachment_id;
+			}
+		}
+		
+		// Also check by filename in uploads directory.
+		$uploads = \wp_upload_dir( null, false );
 		if ( preg_match( '|^' . preg_quote( \wp_normalize_path( $uploads['basedir'] ), '|' ) . '(.*)$|i', $file, $mat ) ) {
 			$attached_file = ltrim( $mat[1], '/' );
 			
-		// Query for existing attachment by exact path.
-		$attachment_id = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-			$wpdb->prepare(
-				"SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_wp_attached_file' AND meta_value = %s LIMIT 1",
-				$attached_file
-			)
-		);
+			// Query for existing attachment by exact path.
+			$attachment_id = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+				$wpdb->prepare(
+					"SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_wp_attached_file' AND meta_value = %s LIMIT 1",
+					$attached_file
+				)
+			);
 			
 			if ( $attachment_id ) {
 				return (int) $attachment_id;
 			}
 		}
 		
-	// Also check by filename in case file was imported before.
-	$filename = \basename( $file );
-	$attachment_id = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
-		$wpdb->prepare(
-			"SELECT p.ID FROM {$wpdb->posts} p 
-			WHERE p.post_type = 'attachment' 
-			AND p.guid LIKE %s 
-			LIMIT 1",
-			'%/' . $wpdb->esc_like( $filename )
-		)
-	);
+		// Check by filename in media library.
+		$attachment_id = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+			$wpdb->prepare(
+				"SELECT p.ID FROM {$wpdb->posts} p 
+				WHERE p.post_type = 'attachment' 
+				AND p.guid LIKE %s 
+				LIMIT 1",
+				'%/' . $wpdb->esc_like( $filename )
+			)
+		);
 
 		return $attachment_id ? (int) $attachment_id : false;
 	}
@@ -1069,6 +1102,9 @@ class Plugin {
 		}
 
 		// Construct the attachment array.
+		$attachment_time_local = current_time( 'mysql' );
+		$attachment_time_gmt   = get_gmt_from_date( $attachment_time_local );
+
 		$attachment = array(
 			'post_mime_type' => $type,
 			'guid'           => $url,
@@ -1077,8 +1113,8 @@ class Plugin {
 			'post_name'      => $title,
 			'post_content'   => $content,
 			'post_excerpt'   => $excerpt,
-			'post_date'      => gmdate( 'Y-m-d H:i:s', $time ),
-			'post_date_gmt'  => gmdate( 'Y-m-d H:i:s', $time ),
+			'post_date'      => $attachment_time_local,
+			'post_date_gmt'  => $attachment_time_gmt,
 		);
 
 		/**
@@ -1101,6 +1137,12 @@ class Plugin {
 			// Generate attachment metadata.
 			$data = \wp_generate_attachment_metadata( $id, $new_file );
 			\wp_update_attachment_metadata( $id, $data );
+			
+			// Store file hash for reliable duplicate detection.
+			$file_hash = $this->get_file_hash( $new_file );
+			if ( $file_hash ) {
+				\update_post_meta( $id, '_afsrreloaded_file_hash', $file_hash );
+			}
 			
 			/**
 			 * Fires after a file has been imported.
