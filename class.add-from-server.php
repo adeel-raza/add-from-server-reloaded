@@ -30,14 +30,18 @@ class Plugin {
 	 * @return array Uploads array (path/url/baseurl/basedir/subdir/error).
 	 */
 	protected function get_import_uploads_dir( $time, $create_dir = true ) {
-		$uploads = wp_upload_dir( $time, false );
+		$time_str = is_numeric( $time ) ? gmdate( 'Y-m-d H:i:s', $time ) : $time;
+		$uploads = wp_upload_dir( $time_str, false );
 		if ( ! empty( $uploads['error'] ) ) {
 			return $uploads;
 		}
 
-		$subdir = apply_filters( 'afsrreloaded_upload_subdir', '/add-from-server-reloaded' );
+		$subdir = apply_filters( 'afsrreloaded_upload_subdir', '' );
 		$subdir = is_string( $subdir ) ? trim( $subdir ) : '';
 		if ( '' === $subdir ) {
+			if ( $create_dir && ! empty( $uploads['path'] ) && ! wp_mkdir_p( $uploads['path'] ) ) {
+				$uploads['error'] = __( 'Unable to create the uploads subdirectory.', 'add-from-server-reloaded' );
+			}
 			return $uploads;
 		}
 

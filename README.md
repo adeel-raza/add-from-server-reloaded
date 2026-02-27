@@ -1,11 +1,26 @@
 # Add From Server Reloaded - Bypass WordPress Upload Limit Plugin
 
-[![WordPress Plugin Version](https://img.shields.io/badge/version-5.1.0-blue)](https://wordpress.org/plugins/add-from-server-reloaded/)
+[![WordPress Plugin Version](https://img.shields.io/badge/version-5.2.0-blue)](https://wordpress.org/plugins/add-from-server-reloaded/)
 [![WordPress Compatibility](https://img.shields.io/badge/WordPress-6.0--6.8-brightgreen)](https://wordpress.org/)
 [![PHP Compatibility](https://img.shields.io/badge/PHP-7.4--8.3-purple)](https://www.php.net/)
 [![License](https://img.shields.io/badge/license-GPL--3.0-orange)](LICENSE)
 [![WordPress.org](https://img.shields.io/badge/WordPress.org-100%2B%20installs-success)](https://wordpress.org/plugins/add-from-server-reloaded/)
 [![Downloads](https://img.shields.io/badge/downloads-WordPress.org-blue)](https://wordpress.org/plugins/add-from-server-reloaded/)
+
+### WordPress.org Plugin Metadata
+| Field | Value |
+|-------|-------|
+| **Requires at least** | 6.0 |
+| **Tested up to** | 6.9.1 |
+| **Stable tag** | 5.2.0 |
+| **Requires PHP** | 7.4 |
+| **Contributors** | dd32, elearningevolve, adeelraza |
+| **Donate link** | [Support via Stripe](https://link.elearningevolve.com/self-pay) |
+
+#### Upgrade Notice
+- **5.2.0** – Imports now use default WordPress year/month folders. Original file dates preserved. Existing URLs unchanged.
+
+---
 
 > **The Ultimate Solution for WordPress Upload Limit Problems** - Import files of any size directly from your server to WordPress Media Library. No PHP configuration needed. No server access required. Works on shared hosting.
 
@@ -274,6 +289,14 @@ Upload timeouts and browser crashes
 ---
 
 ## Changelog
+
+### 5.2.0 - February 27, 2026
+
+* **Changed:** Imports now use default WordPress year/month folder structure (e.g., `uploads/2026/02/`)
+* **Fixed:** Original file date preserved – images keep their year/month structure based on file modification date
+* **Fixed:** No unnecessary or empty upload folders created
+* **Fixed:** WordPress Media Library shows correct path; existing URLs remain unchanged
+* **Added:** `afsrreloaded_upload_subdir` filter – use empty string for year/month (default), or custom path
 
 ### 5.1.0
 

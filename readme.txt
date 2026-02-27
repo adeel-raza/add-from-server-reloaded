@@ -1,11 +1,11 @@
 === Add From Server Reloaded ===
-Contributors: dd32, elearningevolve, adeelraza_786@hotmail.com
+Contributors: dd32, elearningevolve, adeelraza
 Donate link: https://link.elearningevolve.com/self-pay
 Tags: upload-limit, large-files, ftp, import, upload
 Requires at least: 6.0
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 5.1.0
+Stable tag: 5.2.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -93,6 +93,13 @@ Absolutely. No server configuration changes are required.
 
 == Changelog ==
 
+= 5.2.0 – 2026-02-27 =
+* Changed: Imports now use default WordPress year/month folder structure (e.g., uploads/2026/02/).
+* Fixed: Original file date preserved – images keep their year/month structure based on file modification date.
+* Fixed: No unnecessary or empty upload folders created.
+* Fixed: WordPress Media Library shows correct path; existing URLs remain unchanged.
+* Added: `afsrreloaded_upload_subdir` filter – use empty string for year/month (default), or custom path.
+
 = 5.1.0 – 2026-02-16 =
 * Fixed: Invalid date folders, empty upload folders no longer created.  
 * Updated: Imports now go into separate folders with the plugin name.  
@@ -123,7 +130,9 @@ Absolutely. No server configuration changes are required.
 * Batch folder import, enhanced error handling, WordPress 6.7+ compatible.
 
 == Upgrade Notice ==
-  
-* 5.0.0 – Major UI overhaul and modern feature update.  
-* 4.1.2 – Critical fixes for folder navigation.  
-* 4.1.0 – Namespace update for WordPress.org compliance.
+
+= 5.2.0 =
+Imports now use default WordPress year/month folders. Original file dates preserved. Existing URLs unchanged.
+
+= 5.0.0 =
+Major UI overhaul and modern feature update.  
